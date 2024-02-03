@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival Throne</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="titlepng.png" type="image/png">
+</head>
+<body>
+    
+    <script type="module" src="three.js"></script>
+
+    <audio id="song" src="sound.mp3" type="audio/mpeg"></audio>
+
+    <div class="controls">
+      <div><i class="fa-solid fa-backward"></i></div>
+      <div id="toggleSound">&#128266;</div>
+      <div><i class="fa-solid fa-forward"></i></div>
+    </div>
+
+<script>
+let song = document.getElementById("song");
+let toggleSound = document.getElementById("toggleSound");
+
+let isPlaying = false;
+
+function playPause() {
+  if (isPlaying) {
+    song.pause();
+    isPlaying = false;
+    toggleSound.textContent = "🔈"; // Speaker icon when paused
+  } else {
+    song.play();
+    isPlaying = true;
+    toggleSound.textContent = "🔊 "; // Speaker icon when playing
+  }
+}
+
+toggleSound.addEventListener("click", playPause);
+</script>
+
+<button id="restartButton">Restart</button>
+
+<script>
+    // Add event listener to the restart button
+    document.getElementById('restartButton').addEventListener('click', function() {
+        // Reload the page
+        location.reload();
+    });
+</script>
+
+</body>
+</html>
